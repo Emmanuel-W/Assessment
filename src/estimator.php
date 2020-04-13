@@ -115,34 +115,35 @@ function dollarsInFlightSevereImpact($infectionsByRequestedTimeSevereImpact)
   return round($value,2);
 
 }
-$data1 = json_decode($data_json, true);
 
-$data_array = array(
-  'data' => $data1,
-  'impact' => array(
-    'currentlyInfected'=>currentlyInfected($data1['reportedCases']),
-    'infectionsByRequestedTime'=>infectionsByRequestedTime(currentlyInfected($data1['reportedCases']),$data1['periodType']),
-    'severeCasesByRequestedTime'=>severeCasesByRequestedTime(infectionsByRequestedTime(currentlyInfected($data1['reportedCases']),$data1['periodType'])),
-    'hospitalBedsByRequestedTime'=>hospitalBedsByRequestedTime(severeCasesByRequestedTime(infectionsByRequestedTime(currentlyInfected($data1['reportedCases']),$data1['periodType'])),$data1['totalHospitalBeds']),
-    'casesForICUByRequestedTime'=>casesForICUByRequestedTime(infectionsByRequestedTime(currentlyInfected($data1['reportedCases']),$data1['periodType'])),
-    'casesForVentilatorsByRequestedTime'=>casesForVentilatorsByRequestedTime(infectionsByRequestedTime(currentlyInfected($data1['reportedCases']),$data1['periodType'])),
-    'dollarsInFlight'=>dollarsInFlight(infectionsByRequestedTime(currentlyInfected($data1['reportedCases']),$data1['periodType'])),
-  ),
-  'severeImpact' => array(
-    'currentlyInfected'=>currentlyInfectedSevereImpact($data1['reportedCases']),
-    'infectionsByRequestedTime'=>infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType']),
-    'severeCasesByRequestedTime'=>severeCasesByRequestedTimeSevereImpact(infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType'])),
-    'hospitalBedsByRequestedTime'=>hospitalBedsByRequestedTimeSevereImpact(severeCasesByRequestedTimeSevereImpact(infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType'])),$data1['totalHospitalBeds']),
-    'casesForICUByRequestedTime'=>casesForICUByRequestedTimeSevereImpact(infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType'])),
-    'casesForVentilatorsByRequestedTime'=>casesForVentilatorsByRequestedTimeSevereImpact(infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType'])),
-    'dollarsInFlight'=>dollarsInFlightSevereImpact(infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType'])),
-  )
-);
 
-$data = json_encode($data_array);
+
+
+
 
 function covid19ImpactEstimator($data)
 {
-
+  $data1 = json_decode($data, true);
+  $data = array(
+    'data' => $data1,
+    'impact' => array(
+      'currentlyInfected'=>currentlyInfected($data1['reportedCases']),
+      'infectionsByRequestedTime'=>infectionsByRequestedTime(currentlyInfected($data1['reportedCases']),$data1['periodType']),
+      'severeCasesByRequestedTime'=>severeCasesByRequestedTime(infectionsByRequestedTime(currentlyInfected($data1['reportedCases']),$data1['periodType'])),
+      'hospitalBedsByRequestedTime'=>hospitalBedsByRequestedTime(severeCasesByRequestedTime(infectionsByRequestedTime(currentlyInfected($data1['reportedCases']),$data1['periodType'])),$data1['totalHospitalBeds']),
+      'casesForICUByRequestedTime'=>casesForICUByRequestedTime(infectionsByRequestedTime(currentlyInfected($data1['reportedCases']),$data1['periodType'])),
+      'casesForVentilatorsByRequestedTime'=>casesForVentilatorsByRequestedTime(infectionsByRequestedTime(currentlyInfected($data1['reportedCases']),$data1['periodType'])),
+      'dollarsInFlight'=>dollarsInFlight(infectionsByRequestedTime(currentlyInfected($data1['reportedCases']),$data1['periodType'])),
+    ),
+    'severeImpact' => array(
+      'currentlyInfected'=>currentlyInfectedSevereImpact($data1['reportedCases']),
+      'infectionsByRequestedTime'=>infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType']),
+      'severeCasesByRequestedTime'=>severeCasesByRequestedTimeSevereImpact(infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType'])),
+      'hospitalBedsByRequestedTime'=>hospitalBedsByRequestedTimeSevereImpact(severeCasesByRequestedTimeSevereImpact(infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType'])),$data1['totalHospitalBeds']),
+      'casesForICUByRequestedTime'=>casesForICUByRequestedTimeSevereImpact(infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType'])),
+      'casesForVentilatorsByRequestedTime'=>casesForVentilatorsByRequestedTimeSevereImpact(infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType'])),
+      'dollarsInFlight'=>dollarsInFlightSevereImpact(infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType'])),
+    )
+  );
   return $data;
 }
