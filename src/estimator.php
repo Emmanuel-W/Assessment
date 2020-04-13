@@ -120,7 +120,7 @@ function dollarsInFlightSevereImpact($infectionsByRequestedTimeSevereImpact)
 function covid19ImpactEstimator($data)
 {
 
-  $data1 = json_decode((object)$data, true);
+  $data1 = json_decode($data, true);
   $data = array(
     'data' => $data1,
     'impact' => array(
@@ -142,7 +142,7 @@ function covid19ImpactEstimator($data)
       'dollarsInFlight'=>dollarsInFlightSevereImpact(infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType'])),
     )
   );
-  return $data;
+  return json_encode($data);
 }
 
 covid19ImpactEstimator($data_json);
