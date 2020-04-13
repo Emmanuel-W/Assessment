@@ -117,7 +117,7 @@ function dollarsInFlightSevereImpact($infectionsByRequestedTimeSevereImpact)
 }
 $data1 = json_decode($data_json, true);
 
-$data = array(
+$data_array = array(
   'data' => $data1,
   'impact' => array(
     'currentlyInfected'=>currentlyInfected($data1['reportedCases']),
@@ -139,6 +139,7 @@ $data = array(
   )
 );
 
+$data = json_encode($data_array);
 
 function covid19ImpactEstimator($data)
 {
