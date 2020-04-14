@@ -142,7 +142,5 @@ function covid19ImpactEstimator($data)
       'dollarsInFlight'=>dollarsInFlightSevereImpact(infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType'])),
     )
   );
-  return json_encode($data);
+  return $data;
 }
-
-covid19ImpactEstimator($data_json);
