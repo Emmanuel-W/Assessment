@@ -127,7 +127,7 @@ function covid19ImpactEstimator($data)
     'currentlyInfected'=>currentlyInfected($data['reportedCases']),
     'infectionsByRequestedTime'=>infectionsByRequestedTime(currentlyInfected($data['reportedCases']),$data['periodType']),
     'severeCasesByRequestedTime'=>severeCasesByRequestedTime(infectionsByRequestedTime(currentlyInfected($data['reportedCases']),$data['periodType'])),
-    'casesForICUByRequestedTime'=>casesForICUByRequestedTime(infectionsByRequestedTime(currentlyInfected($data1['reportedCases']),$data1['periodType'])),
+    'casesForICUByRequestedTime'=>casesForICUByRequestedTime(infectionsByRequestedTime(currentlyInfected($data['reportedCases']),$data['periodType'])),
     'hospitalBedsByRequestedTime'=>hospitalBedsByRequestedTime(severeCasesByRequestedTime(infectionsByRequestedTime(currentlyInfected($data['reportedCases']),$data['periodType'])),$data['totalHospitalBeds']),
     'casesForVentilatorsByRequestedTime'=>casesForVentilatorsByRequestedTime(infectionsByRequestedTime(currentlyInfected($data['reportedCases']),$data['periodType'])),
     'dollarsInFlight'=>dollarsInFlight(infectionsByRequestedTime(currentlyInfected($data['reportedCases']),$data['periodType'])),
