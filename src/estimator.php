@@ -143,7 +143,7 @@ function covid19ImpactEstimator($data)
   $data = array(
     'data' => $data1,
     'impact' => $impact,
-    'severeImpact' => $severeImpact;
+    'severeImpact' => $severeImpact,
   );
   return $data;
 }
