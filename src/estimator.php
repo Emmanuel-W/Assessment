@@ -140,10 +140,10 @@ function covid19ImpactEstimator($data)
     'dollarsInFlight'=>dollarsInFlightSevereImpact(infectionsByRequestedTimeSevereImpact(currentlyInfectedSevereImpact($data1['reportedCases']),$data1['periodType'])),
   );
 
-  $data = array(
+
+  return array(
     'data' => $data1,
     'impact' => $impact,
     'severeImpact' => $severeImpact,
   );
-  return $data;
 }
